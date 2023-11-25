@@ -4,8 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import androidx.navigation.navigation
 import com.ascdev.overdata.home.presentation.gamemodes.GameModesScreen
 import com.ascdev.overdata.home.presentation.hero_detail.HeroDetailScreen
@@ -39,14 +41,17 @@ private fun NavGraphBuilder.showHeroes(navController: NavController) {
         route = LeafScreen.Heroes.route,
     ) {
         HeroesScreen(onHeroDetail = {
-            navController.navigate(LeafScreen.HeroDetail.route)
+            navController.navigate(LeafScreen.HeroDetail.route+"?heroKey=$it")
         })
     }
 }
 
 private fun NavGraphBuilder.showHeroDetail(navController: NavController) {
     composable(
-        route = LeafScreen.HeroDetail.route,
+        route = LeafScreen.HeroDetail.route + "?heroKey={heroKey}",
+        arguments = listOf(navArgument("heroKey"){
+            type = NavType.StringType
+        })
     ) {
         HeroDetailScreen()
     }
