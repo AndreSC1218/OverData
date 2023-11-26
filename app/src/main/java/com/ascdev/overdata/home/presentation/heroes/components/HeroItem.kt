@@ -28,7 +28,7 @@ import com.ascdev.overdata.home.domain.models.hero.Hero
 @Composable
 fun HeroItem(
     hero: Hero,
-    onHeroDetail: ()-> Unit,
+    onHeroDetail: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Card(
@@ -40,7 +40,7 @@ fun HeroItem(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.primary
         )
-        ) {
+    ) {
         Column(
             modifier = modifier
                 .background(MaterialTheme.colorScheme.primary),
