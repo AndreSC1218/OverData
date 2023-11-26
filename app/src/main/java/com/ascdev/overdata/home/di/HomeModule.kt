@@ -6,6 +6,7 @@ import com.ascdev.overdata.home.domain.usecase.heroes_usecase.GetAllHeroesUseCas
 import com.ascdev.overdata.home.domain.usecase.heroes_usecase.GetHeroDetailUseCase
 import com.ascdev.overdata.home.domain.usecase.heroes_usecase.HeroesUseCases
 import com.ascdev.overdata.home.domain.repository.HomeRepository
+import com.ascdev.overdata.home.domain.usecase.gamemodes_usecase.GetAllGameModesUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -43,5 +44,10 @@ object HomeModule {
         )
     }
 
+    @Singleton
+    @Provides
+    fun provideGameModeUseCase(repository: HomeRepository):GetAllGameModesUseCase{
+        return GetAllGameModesUseCase(repository)
+    }
 
 }
