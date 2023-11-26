@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">OverData</string>
+    <string name="description">Description</string>
+    <string name="heroes">HEROES</string>
+    <string name="game_modes">GAME MODES</string>
+    <string name="maps">MAPS</string>
 </resources>
