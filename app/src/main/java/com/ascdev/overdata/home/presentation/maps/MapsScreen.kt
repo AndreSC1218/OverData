@@ -28,6 +28,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.ascdev.overdata.home.domain.models.map.Map
+import com.ascdev.overdata.home.presentation.maps.components.MapItem
 import com.github.awxkee.avifcoil.HeifDecoder
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -40,68 +41,13 @@ fun MapsScreen(
     var state = viewModel.state
 
     Scaffold {
-        Box(modifier = Modifier.fillMaxSize()) {
-            LazyColumn(
-                modifier = Modifier.fillMaxSize()
-            ) {
-                items(state.maps) {
-                    MapItem(map = it)
-                }
-            }
-        }
-    }
-}
-
-@Composable
-fun MapItem(map: Map) {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp)
-    ) {
-        Column(
-            modifier = Modifier.background(MaterialTheme.colorScheme.primary)
+        LazyColumn(
+            modifier = Modifier.fillMaxSize()
         ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color(0xFF293558))
-            ) {
-                Text(
-                    text = map.name,
-                    color = MaterialTheme.colorScheme.tertiary,
-                    style = MaterialTheme.typography.titleMedium,
-                    modifier = Modifier
-                        .align(Alignment.Center)
-                        .padding(8.dp)
-                )
-            }
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(100.dp)
-                    .background(Color(0xFFc8ddf8))
-            ) {
-                AsyncImage(
-                    model = map.screenshot,
-                    contentDescription = null,
-                    modifier = Modifier.fillMaxSize(),
-                    contentScale = ContentScale.Crop
-                )
-            }
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(MaterialTheme.colorScheme.primary)
-                    .padding(16.dp)
-            ) {
-                Text(
-                    text = map.location,
-                    color = MaterialTheme.colorScheme.secondary,
-                    style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.align(Alignment.Center)
-                )
+            items(state.maps) {
+                MapItem(map = it)
             }
         }
+
     }
 }

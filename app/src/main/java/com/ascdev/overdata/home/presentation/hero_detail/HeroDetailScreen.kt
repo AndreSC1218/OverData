@@ -53,23 +53,21 @@ fun HeroDetailScreen(
     var state = viewModel.state
 
     Scaffold {
-        Box(modifier = Modifier.fillMaxSize()) {
-            if (state.isError) {
-                OverDataConnectionError(onRetry = { viewModel.getHeroDetail() })
-            } else if (state.heroDetail != null) {
-                LazyColumn(
-                    modifier = Modifier.fillMaxSize()
-                ) {
-                    item {
-                        HeroHeader(heroDetail = state.heroDetail!!)
-                        HeroDescription(story = state.heroDetail!!.story)
-                        AbilitySection(abilities = state.heroDetail!!.abilities)
-                        StorySection(story = state.heroDetail!!.story)
-                    }
+        if (state.isError) {
+            OverDataConnectionError(onRetry = { viewModel.getHeroDetail() })
+        } else if (state.heroDetail != null) {
+            LazyColumn(
+                modifier = Modifier.fillMaxSize()
+            ) {
+                item {
+                    HeroHeader(heroDetail = state.heroDetail!!)
+                    HeroDescription(story = state.heroDetail!!.story)
+                    AbilitySection(abilities = state.heroDetail!!.abilities)
+                    StorySection(story = state.heroDetail!!.story)
                 }
-            } else if (state.isLoading) {
-                OverDataCircularProgress()
             }
+        } else if (state.isLoading) {
+            OverDataCircularProgress()
         }
     }
 }

@@ -41,7 +41,7 @@ private fun NavGraphBuilder.showHeroes(navController: NavController) {
         route = LeafScreen.Heroes.route,
     ) {
         HeroesScreen(onHeroDetail = {
-            navController.navigate(LeafScreen.HeroDetail.route+"?heroKey=$it")
+            navController.navigate(LeafScreen.HeroDetail.route + "?heroKey=$it")
         })
     }
 }
@@ -49,7 +49,7 @@ private fun NavGraphBuilder.showHeroes(navController: NavController) {
 private fun NavGraphBuilder.showHeroDetail(navController: NavController) {
     composable(
         route = LeafScreen.HeroDetail.route + "?heroKey={heroKey}",
-        arguments = listOf(navArgument("heroKey"){
+        arguments = listOf(navArgument("heroKey") {
             type = NavType.StringType
         })
     ) {

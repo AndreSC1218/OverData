@@ -13,9 +13,10 @@ import javax.inject.Inject
 @HiltViewModel
 class HeroesViewModel @Inject constructor(
     private val heroesUseCases: HeroesUseCases,
-): ViewModel() {
+) : ViewModel() {
     var state by mutableStateOf(HeroesState())
         private set
+
     init {
         getHeroes()
     }

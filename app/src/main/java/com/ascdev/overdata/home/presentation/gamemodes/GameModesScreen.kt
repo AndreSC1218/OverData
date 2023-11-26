@@ -24,20 +24,18 @@ fun GameModesScreen(
     var state = viewModel.state
 
     Scaffold {
-        Box(modifier = Modifier.fillMaxSize()) {
-            if(state.isError){
-                OverDataConnectionError(onRetry = { viewModel.getGameModes() })
-            }else if(state.gamemodes.isNotEmpty()){
-                LazyColumn(
-                    modifier = Modifier.fillMaxSize()
-                ) {
-                    items(state.gamemodes) {
-                        GameModeItem(gameMode = it)
-                    }
+        if (state.isError) {
+            OverDataConnectionError(onRetry = { viewModel.getGameModes() })
+        } else if (state.gamemodes.isNotEmpty()) {
+            LazyColumn(
+                modifier = Modifier.fillMaxSize()
+            ) {
+                items(state.gamemodes) {
+                    GameModeItem(gameMode = it)
                 }
-            } else if(state.isLoading){
-                OverDataCircularProgress()
             }
+        } else if (state.isLoading) {
+            OverDataCircularProgress()
         }
     }
 }

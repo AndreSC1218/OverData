@@ -6,7 +6,7 @@ import com.ascdev.overdata.home.domain.repository.HomeRepository
 class GetAllHeroesUseCase(
     private val repository: HomeRepository
 ) {
-    suspend operator fun invoke() : Result<List<Hero>> {
+    suspend operator fun invoke(): Result<List<Hero>> {
         return repository.getAllHeroes()
     }
 }

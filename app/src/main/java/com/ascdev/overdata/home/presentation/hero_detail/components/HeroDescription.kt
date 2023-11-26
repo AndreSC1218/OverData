@@ -12,7 +12,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.ascdev.overdata.R
 import com.ascdev.overdata.home.domain.models.hero_detail.Story
 
 @Composable
@@ -32,7 +34,7 @@ fun HeroDescription(story: Story) {
                     .background(Color(0xFF293558))
             ) {
                 Text(
-                    text = "Description",
+                    text = stringResource(R.string.description) ,
                     color = MaterialTheme.colorScheme.tertiary,
                     style = MaterialTheme.typography.titleMedium,
                     modifier = Modifier

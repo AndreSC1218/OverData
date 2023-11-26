@@ -6,7 +6,7 @@ import com.ascdev.overdata.home.domain.repository.HomeRepository
 class GetHeroDetailUseCase(
     private val repository: HomeRepository
 ) {
-    suspend operator fun invoke(key:String) : Result<HeroDetail> {
+    suspend operator fun invoke(key: String): Result<HeroDetail> {
         return repository.getHeroDetail(key)
     }
 }
