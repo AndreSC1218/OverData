@@ -8,7 +8,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface OverDataApi {
-    companion object{
+    companion object {
         const val BASE_URL = "https://overfast-api.tekrop.fr/"
     }
 

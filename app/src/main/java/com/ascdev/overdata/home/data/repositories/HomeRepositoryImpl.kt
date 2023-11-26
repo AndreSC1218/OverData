@@ -34,9 +34,9 @@ class HomeRepositoryImpl(
         }
     }
 
-    override suspend fun getHeroDetail(herokey: String): Result<HeroDetail> {
+    override suspend fun getHeroDetail(key: String): Result<HeroDetail> {
         return try {
-            val response = api.getHeroDetail(herokey).toHeroDetail()
+            val response = api.getHeroDetail(key).toHeroDetail()
             Result.success(response)
         } catch (e: Exception) {
             Result.failure(e)

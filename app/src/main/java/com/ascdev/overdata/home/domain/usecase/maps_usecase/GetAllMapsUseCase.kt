@@ -6,7 +6,7 @@ import com.ascdev.overdata.home.domain.repository.HomeRepository
 class GetAllMapsUseCase(
     private val repository: HomeRepository
 ) {
-    suspend operator fun invoke() : Result<List<Map>>{
+    suspend operator fun invoke(): Result<List<Map>> {
         return repository.getAllMaps()
     }
 }

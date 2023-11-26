@@ -36,21 +36,19 @@ fun HeroesScreen(
     var state = viewModel.state
 
     Scaffold {
-        Box(modifier = Modifier.fillMaxSize()) {
-            if (state.isError) {
-                OverDataConnectionError(onRetry = { viewModel.getHeroes() })
-            } else if (state.heroes.isNotEmpty()) {
-                LazyVerticalGrid(
-                    columns = GridCells.Fixed(3),
-                    contentPadding = PaddingValues(8.dp)
-                ) {
-                    items(state.heroes) {
-                        HeroItem(hero = it, onHeroDetail = { onHeroDetail(it.key) })
-                    }
+        if (state.isError) {
+            OverDataConnectionError(onRetry = { viewModel.getHeroes() })
+        } else if (state.heroes.isNotEmpty()) {
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(3),
+                contentPadding = PaddingValues(8.dp)
+            ) {
+                items(state.heroes) {
+                    HeroItem(hero = it, onHeroDetail = { onHeroDetail(it.key) })
                 }
-            } else if (state.isLoading) {
-                OverDataCircularProgress()
             }
+        } else if (state.isLoading) {
+            OverDataCircularProgress()
         }
     }
 }

@@ -19,7 +19,6 @@ import com.ascdev.overdata.navigation.currentScreenAsState
 fun HomeScreen() {
     val navController = rememberNavController()
     val currentSelectedScreen by navController.currentScreenAsState()
-    val currentRoute by navController.currentRouteAsState()
 
     Scaffold(
         bottomBar = {
@@ -27,9 +26,6 @@ fun HomeScreen() {
                 navController = navController,
                 currentSelectedScreen = currentSelectedScreen
             )
-//            if (currentRoute == null || bottomNavRoutes.contains(currentRoute)) {
-//
-//            }
         },
         modifier = Modifier.fillMaxSize(),
     ) {

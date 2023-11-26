@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.ascdev.overdata.R
@@ -41,11 +42,11 @@ fun HomeBottomNavigation(
                 icon = {
                     Icon(
                         painter = painterResource(id = R.drawable.heroes_icon),
-                        contentDescription = "prueba"
+                        contentDescription = stringResource(R.string.heroes)
                     )
                 },
                 label = {
-                    Text(text = "HEROES")
+                    Text(text = stringResource(R.string.heroes))
                 },
                 colors = NavigationBarItemDefaults.colors(
                     indicatorColor = MaterialTheme.colorScheme.primary,
@@ -61,11 +62,11 @@ fun HomeBottomNavigation(
                 icon = {
                     Icon(
                         imageVector = Icons.Outlined.SportsEsports,
-                        contentDescription = "prueba"
+                        contentDescription = stringResource(R.string.game_modes)
                     )
                 },
                 label = {
-                    Text(text = "GAME MODES")
+                    Text(text = stringResource(R.string.game_modes))
                 },
                 colors = NavigationBarItemDefaults.colors(
                     indicatorColor = MaterialTheme.colorScheme.primary,
@@ -81,11 +82,11 @@ fun HomeBottomNavigation(
                 icon = {
                     Icon(
                         imageVector = Icons.Outlined.Map,
-                        contentDescription = "prueba"
+                        contentDescription = stringResource(R.string.maps)
                     )
                 },
                 label = {
-                    Text(text = "MAPS")
+                    Text(text = stringResource(R.string.maps))
                 },
                 colors = NavigationBarItemDefaults.colors(
                     indicatorColor = MaterialTheme.colorScheme.primary,

@@ -1,8 +1,9 @@
-package com.ascdev.overdata.home.presentation.gamemodes.components
+package com.ascdev.overdata.home.presentation.maps.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -14,16 +15,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import coil.request.ImageRequest
-import com.ascdev.overdata.home.domain.models.gamemodes.GameMode
-import com.github.awxkee.avifcoil.HeifDecoder
+import com.ascdev.overdata.home.domain.models.map.Map
 
 @Composable
-fun GameModeItem(
-    gameMode: GameMode
+fun MapItem(
+    map: Map
 ) {
     Card(
         modifier = Modifier
@@ -39,7 +37,7 @@ fun GameModeItem(
                     .background(Color(0xFF293558))
             ) {
                 Text(
-                    text = gameMode.name,
+                    text = map.name,
                     color = MaterialTheme.colorScheme.tertiary,
                     style = MaterialTheme.typography.titleMedium,
                     modifier = Modifier
@@ -50,15 +48,13 @@ fun GameModeItem(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(160.dp)
+                    .height(100.dp)
                     .background(Color(0xFFc8ddf8))
             ) {
                 AsyncImage(
-                    model = ImageRequest.Builder(LocalContext.current)
-                        .data(gameMode.screenshot)
-                        .decoderFactory(HeifDecoder.Factory(LocalContext.current))
-                        .build(),
+                    model = map.screenshot,
                     contentDescription = null,
+                    modifier = Modifier.fillMaxSize(),
                     contentScale = ContentScale.Crop
                 )
             }
@@ -69,9 +65,10 @@ fun GameModeItem(
                     .padding(16.dp)
             ) {
                 Text(
-                    text = gameMode.description,
+                    text = map.location,
                     color = MaterialTheme.colorScheme.secondary,
                     style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier.align(Alignment.Center)
                 )
             }
         }

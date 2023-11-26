@@ -15,16 +15,17 @@ import javax.inject.Inject
 class HeroDetailViewModel @Inject constructor(
     private val heroesUseCases: HeroesUseCases,
     private val savedStateHandle: SavedStateHandle
-): ViewModel() {
+) : ViewModel() {
     var state by mutableStateOf(HeroDetailState())
         private set
 
     val key = savedStateHandle.get<String>("heroKey")
+
     init {
-            getHeroDetail()
+        getHeroDetail()
     }
 
-    fun getHeroDetail(){
+    fun getHeroDetail() {
         viewModelScope.launch {
             state = state.copy(isError = false)
             state = state.copy(isLoading = true)
@@ -33,7 +34,7 @@ class HeroDetailViewModel @Inject constructor(
                     state = state.copy(
                         heroDetail = it
                     )
-                }.onFailure {throwable ->
+                }.onFailure { throwable ->
                     throwable.printStackTrace()
                     state = state.copy(
                         isError = true
