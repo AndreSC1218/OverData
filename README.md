@@ -19,29 +19,27 @@ OverData is an Android application designed to provide comprehensive information
 
 - **[Kotlin](https://developer.android.com/kotlin):** Modern language for Android development.
   
-- **[Jetpack Compose](https://developer.android.com/kotlin):** Declarative UI toolkit for native Android UIs.
+- **[Jetpack Compose](https://developer.android.com/jetpack/compose):** Declarative UI toolkit for native Android UIs.
 
-- **[Hilt](https://developer.android.com/kotlin):** Dependency injection library for clean and modular code.
+- **[Hilt](https://dagger.dev/hilt/):** Dependency injection library for clean and modular code.
 
-- **[Coil](https://developer.android.com/kotlin):** Image loading library for efficient image handling.
+- **[Coil](https://coil-kt.github.io/coil/):** Image loading library for efficient image handling.
 
-- **[Moshi Converter](https://developer.android.com/kotlin):** JSON parsing with Retrofit for Android apps.
+- **[Moshi Converter](https://github.com/square/moshi):** JSON parsing with Retrofit for Android apps.
 
-- **[.avif Image Library](https://developer.android.com/kotlin):** Coil extension for .avif images on Android API 24+.
+- **[AVIF/HEIF Coder](https://github.com/awxkee/avif-coder):** AVIF/HEIF Coder for Android 24+.
 
 - **Clean Architecture, SOLID Principles:** Design approach for maintainable and scalable code.
 
-- **[Retrofit](https://developer.android.com/kotlin):** Type-safe HTTP client for consuming RESTful APIs.
+- **[Retrofit](https://square.github.io/retrofit/):** HTTP client for consuming RESTful APIs.
 
-- **[Gitflow](https://developer.android.com/kotlin):** Git branching model for project release management.
+- **GitFlow:** Git branching model for project release management.
 
-- **[MVVM](https://developer.android.com/kotlin):** Architecture for separating UI and business logic.
+- **MVVM:** Architecture for separating UI and business logic.
 
-- **OverFast API:** Utilization of the OverFast API for fetching Overwatch 2 data.
+- **[OverFast API](https://overfast-api.tekrop.fr/):** Utilization of the OverFast API for fetching Overwatch 2 data.
 
 ## How to Run the Project
-
-To run the OverData project:
 
 1. Clone this repository to your local machine.
 2. Open the project in Android Studio.
