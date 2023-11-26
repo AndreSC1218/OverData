@@ -10,6 +10,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.ascdev.overdata.core.presentation.OverDataCircularProgress
+import com.ascdev.overdata.core.presentation.OverDataConnectionError
 import com.ascdev.overdata.home.presentation.gamemodes.components.GameModeItem
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -18,16 +20,23 @@ import com.ascdev.overdata.home.presentation.gamemodes.components.GameModeItem
 fun GameModesScreen(
     viewModel: GameModesViewModel = hiltViewModel()
 ) {
+
     var state = viewModel.state
 
     Scaffold {
         Box(modifier = Modifier.fillMaxSize()) {
-            LazyColumn(
-                modifier = Modifier.fillMaxSize()
-            ) {
-                items(state.gamemodes) {
-                    GameModeItem(gameMode = it)
+            if(state.isError){
+                OverDataConnectionError(onRetry = { viewModel.getGameModes() })
+            }else if(state.gamemodes.isNotEmpty()){
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize()
+                ) {
+                    items(state.gamemodes) {
+                        GameModeItem(gameMode = it)
+                    }
                 }
+            } else if(state.isLoading){
+                OverDataCircularProgress()
             }
         }
     }

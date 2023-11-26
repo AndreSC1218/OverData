@@ -13,12 +13,18 @@ import javax.inject.Inject
 @HiltViewModel
 class GameModesViewModel @Inject constructor(
     private val getAllGameModesUseCase: GetAllGameModesUseCase
-):ViewModel(){
+) : ViewModel() {
     var state by mutableStateOf(GameModesState())
         private set
 
     init {
+        getGameModes()
+    }
+
+    fun getGameModes() {
         viewModelScope.launch {
+            state = state.copy(isError = false)
+            state = state.copy(isLoading = true)
             getAllGameModesUseCase().onSuccess {
                 state = state.copy(
                     gamemodes = it
@@ -28,6 +34,7 @@ class GameModesViewModel @Inject constructor(
                     isError = true
                 )
             }
+            state = state.copy(isLoading = false)
         }
     }
 }
