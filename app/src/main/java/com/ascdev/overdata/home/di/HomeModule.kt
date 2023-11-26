@@ -7,6 +7,7 @@ import com.ascdev.overdata.home.domain.usecase.heroes_usecase.GetHeroDetailUseCa
 import com.ascdev.overdata.home.domain.usecase.heroes_usecase.HeroesUseCases
 import com.ascdev.overdata.home.domain.repository.HomeRepository
 import com.ascdev.overdata.home.domain.usecase.gamemodes_usecase.GetAllGameModesUseCase
+import com.ascdev.overdata.home.domain.usecase.maps_usecase.GetAllMapsUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,7 +22,7 @@ import javax.inject.Singleton
 object HomeModule {
     @Singleton
     @Provides
-    fun provideOverDataApi() : OverDataApi{
+    fun provideOverDataApi(): OverDataApi {
         return Retrofit.Builder().baseUrl(OverDataApi.BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
             .client(OkHttpClient.Builder().build()).build().create(OverDataApi::class.java)
@@ -46,8 +47,14 @@ object HomeModule {
 
     @Singleton
     @Provides
-    fun provideGameModeUseCase(repository: HomeRepository):GetAllGameModesUseCase{
+    fun provideGameModeUseCase(repository: HomeRepository): GetAllGameModesUseCase {
         return GetAllGameModesUseCase(repository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideMapUseCase(repository: HomeRepository): GetAllMapsUseCase {
+        return GetAllMapsUseCase(repository)
     }
 
 }
