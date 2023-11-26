@@ -67,7 +67,3 @@ We welcome contributions! If you want to contribute to OverData, please fork the
 [MIT](https://choosealicense.com/licenses/mit/)
 
 We welcome contributions! If you want to contribute to OverData, please fork the repository and create a pull request. For major changes, please open an issue first to discuss the proposed changes.
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
