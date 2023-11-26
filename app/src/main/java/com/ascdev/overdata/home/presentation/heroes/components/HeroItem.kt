@@ -61,6 +61,7 @@ fun HeroItem(
             }
             Text(
                 modifier = modifier.padding(8.dp),
+                style = MaterialTheme.typography.titleMedium,
                 text = hero.name,
                 textAlign = TextAlign.Center,
                 maxLines = 1,
