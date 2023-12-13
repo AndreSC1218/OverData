@@ -11,11 +11,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.ascdev.overdata.R
 import com.ascdev.overdata.home.domain.models.hero_detail.Story
+import com.ascdev.overdata.ui.theme.OverDataDarkBlue
 
 @Composable
 fun HeroDescription(story: Story) {
@@ -31,10 +31,10 @@ fun HeroDescription(story: Story) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(0xFF293558))
+                    .background(OverDataDarkBlue)
             ) {
                 Text(
-                    text = stringResource(R.string.description) ,
+                    text = stringResource(R.string.description),
                     color = MaterialTheme.colorScheme.tertiary,
                     style = MaterialTheme.typography.titleMedium,
                     modifier = Modifier

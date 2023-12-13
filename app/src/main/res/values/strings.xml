@@ -4,4 +4,6 @@
     <string name="heroes">HEROES</string>
     <string name="game_modes">GAME MODES</string>
     <string name="maps">MAPS</string>
+    <string name="connection_error">Connection Error</string>
+    <string name="retry">Retry</string>
 </resources>

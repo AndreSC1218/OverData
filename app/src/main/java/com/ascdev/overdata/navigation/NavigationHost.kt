@@ -20,8 +20,8 @@ fun NavigationHost(
 ) {
     NavHost(navController = navController, startDestination = RootScreen.Heroes.route) {
         addHeroesRoute(navController)
-        addGameModesRoute(navController)
-        addMapsRoute(navController)
+        addGameModesRoute()
+        addMapsRoute()
     }
 }
 
@@ -32,7 +32,7 @@ private fun NavGraphBuilder.addHeroesRoute(navController: NavController) {
         startDestination = LeafScreen.Heroes.route
     ) {
         showHeroes(navController)
-        showHeroDetail(navController)
+        showHeroDetail()
     }
 }
 
@@ -46,7 +46,7 @@ private fun NavGraphBuilder.showHeroes(navController: NavController) {
     }
 }
 
-private fun NavGraphBuilder.showHeroDetail(navController: NavController) {
+private fun NavGraphBuilder.showHeroDetail() {
     composable(
         route = LeafScreen.HeroDetail.route + "?heroKey={heroKey}",
         arguments = listOf(navArgument("heroKey") {
@@ -59,16 +59,16 @@ private fun NavGraphBuilder.showHeroDetail(navController: NavController) {
 //end of heroes navigation
 
 //Game Modes Navigation
-private fun NavGraphBuilder.addGameModesRoute(navController: NavController) {
+private fun NavGraphBuilder.addGameModesRoute() {
     navigation(
         route = RootScreen.GameModes.route,
         startDestination = LeafScreen.GameModes.route
     ) {
-        showGameModes(navController)
+        showGameModes()
     }
 }
 
-private fun NavGraphBuilder.showGameModes(navController: NavController) {
+private fun NavGraphBuilder.showGameModes() {
     composable(route = LeafScreen.GameModes.route) {
         GameModesScreen()
     }
@@ -77,16 +77,16 @@ private fun NavGraphBuilder.showGameModes(navController: NavController) {
 
 
 //Maps Navigation
-private fun NavGraphBuilder.addMapsRoute(navController: NavController) {
+private fun NavGraphBuilder.addMapsRoute() {
     navigation(
         route = RootScreen.Maps.route,
         startDestination = LeafScreen.Maps.route
     ) {
-        showMaps(navController)
+        showMaps()
     }
 }
 
-private fun NavGraphBuilder.showMaps(navController: NavController) {
+private fun NavGraphBuilder.showMaps() {
     composable(route = LeafScreen.Maps.route) {
         MapsScreen()
     }

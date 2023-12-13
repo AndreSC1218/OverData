@@ -13,11 +13,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.ascdev.overdata.home.domain.models.map.Map
+import com.ascdev.overdata.ui.theme.OverDataDarkBlue
+import com.ascdev.overdata.ui.theme.OverDataSkyBlue
 
 @Composable
 fun MapItem(
@@ -34,7 +35,7 @@ fun MapItem(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(0xFF293558))
+                    .background(OverDataDarkBlue)
             ) {
                 Text(
                     text = map.name,
@@ -49,7 +50,7 @@ fun MapItem(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(100.dp)
-                    .background(Color(0xFFc8ddf8))
+                    .background(OverDataSkyBlue)
             ) {
                 AsyncImage(
                     model = map.screenshot,

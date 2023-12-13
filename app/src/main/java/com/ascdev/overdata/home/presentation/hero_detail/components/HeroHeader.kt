@@ -13,11 +13,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.ascdev.overdata.home.domain.models.hero_detail.HeroDetail
+import com.ascdev.overdata.ui.theme.OverDataSkyBlue
 
 @Composable
 fun HeroHeader(heroDetail: HeroDetail) {
@@ -33,7 +33,7 @@ fun HeroHeader(heroDetail: HeroDetail) {
             model = heroDetail.portrait, contentDescription = null,
             modifier = Modifier
                 .clip(CircleShape)
-                .background(Color(0xFFc8ddf8)),
+                .background(OverDataSkyBlue),
             contentScale = ContentScale.Crop
         )
         Spacer(modifier = Modifier.height(8.dp))
@@ -43,7 +43,7 @@ fun HeroHeader(heroDetail: HeroDetail) {
             color = MaterialTheme.colorScheme.secondary
         )
         Text(
-            text = "${heroDetail.role}".uppercase(),
+            text = heroDetail.role.uppercase(),
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.tertiary
         )

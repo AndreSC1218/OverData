@@ -12,13 +12,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.ascdev.overdata.home.domain.models.gamemodes.GameMode
+import com.ascdev.overdata.ui.theme.OverDataDarkBlue
+import com.ascdev.overdata.ui.theme.OverDataSkyBlue
 import com.github.awxkee.avifcoil.HeifDecoder
 
 @Composable
@@ -36,7 +37,7 @@ fun GameModeItem(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(0xFF293558))
+                    .background(OverDataDarkBlue)
             ) {
                 Text(
                     text = gameMode.name,
@@ -51,7 +52,7 @@ fun GameModeItem(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(160.dp)
-                    .background(Color(0xFFc8ddf8))
+                    .background(OverDataSkyBlue)
             ) {
                 AsyncImage(
                     model = ImageRequest.Builder(LocalContext.current)

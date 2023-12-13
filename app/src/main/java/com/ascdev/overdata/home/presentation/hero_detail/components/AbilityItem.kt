@@ -43,13 +43,13 @@ fun AbilityItem(ability: Ability) {
                 modifier = Modifier.padding(start = 16.dp)
             ) {
                 Text(
-                    text = "${ability.name}",
+                    text = ability.name,
                     color = MaterialTheme.colorScheme.tertiary,
                     style = MaterialTheme.typography.titleMedium,
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = "${ability.description}",
+                    text = ability.description,
                     color = MaterialTheme.colorScheme.secondary,
                     style = MaterialTheme.typography.bodyMedium
                 )
