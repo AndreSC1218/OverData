@@ -11,7 +11,6 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.ascdev.overdata.home.presentation.home.components.HomeBottomNavigation
 import com.ascdev.overdata.navigation.NavigationHost
-import com.ascdev.overdata.navigation.currentRouteAsState
 import com.ascdev.overdata.navigation.currentScreenAsState
 
 @OptIn(ExperimentalMaterial3Api::class)
